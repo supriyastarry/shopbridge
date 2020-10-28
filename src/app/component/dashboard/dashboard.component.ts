@@ -8,9 +8,9 @@ import { ItemService } from 'src/app/service/item.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  itemList:any;
-	 filterData:any;
- 	itemListData:any;
+  	itemList:[];
+	filterData:[];
+ 	itemListData:[];
 	 @ViewChild('htmlData') htmlData:ElementRef;
  	constructor(private itemservice:ItemService,private toastr: ToastrService) { }
  	// Call item list function on page load 
@@ -27,9 +27,6 @@ export class DashboardComponent implements OnInit {
  	// Get item list success
  	success(data){
  		this.itemListData = data.data;
- 		for (var i = 0; i < this.itemListData.length; i++) {
- 			this.itemListData[i].name = this.itemListData[i].name;
- 		}
  	}
 
  	// Delete a item with its index

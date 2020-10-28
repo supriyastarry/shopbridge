@@ -49,7 +49,7 @@ export class ItemService {
               data : JSON.parse(localStorage.getItem('items'))
             } } 
           } catch (e) {
-        console.log("Storage failed: " + e);
+        console.log("action failed: " + e);
       }
     return returnData;
   }
@@ -71,6 +71,7 @@ export class ItemService {
   }
 
   getitemDetails(index:number){
+    try {
     let itemList = JSON.parse(localStorage.getItem('items'));
 
     let returnData = {
@@ -80,6 +81,9 @@ export class ItemService {
     }
 
     return returnData;
+  } catch (e){
+    console.log(e);
+  }
   }
 
   generateRandomID() {
